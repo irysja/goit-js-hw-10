@@ -1,4 +1,6 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
+import * as Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
 
 const breedSelect = document.getElementById('breed-select');
 const loader = document.querySelector('.loader');
@@ -8,7 +10,7 @@ const breedName = document.getElementById('breed-name');
 const breedDescription = document.getElementById('breed-description');
 const breedTemperament = document.getElementById('breed-temperament');
 const catImage = document.getElementById('cat-image');
-
+let errorReport = null;
 
 function populateBreedSelect(breeds) {
   breeds.forEach(breed => {
@@ -16,6 +18,10 @@ function populateBreedSelect(breeds) {
     option.value = breed.id;
     option.textContent = breed.name;
     breedSelect.appendChild(option);
+  });
+
+  new SlimSelect({
+    select: breedSelect,
   });
 }
 
@@ -30,11 +36,17 @@ function hideLoader() {
 }
 
 function showError() {
-  error.style.display = 'block';
+  errorReport = Notiflix.Report.Failure(
+    'Error',
+    'An error occurred while fetching data.',
+    'OK'
+  );
 }
 
 function hideError() {
-  error.style.display = 'none';
+  if (errorReport !== null) {
+    errorReport.style.visibility = 'hidden';
+  }
 }
 
 function showCatInfo() {
