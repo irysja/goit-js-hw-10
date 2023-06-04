@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+<html>
+<head>
+  <title>Cat API Demo</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <h1>Cat API Demo</h1>
+  <div class="container">
+    <div>
+      <label for="breed-select">Select Breed:</label>
+      <select id="breed-select"></select>
+    </div>
+    <p class="loader">Loading...</p>
+    <p class="error">Error occurred while fetching data.</p>
+    <div class="cat-info">
+      <h2 id="breed-name"></h2>
+      <p id="breed-description"></p>
+      <p id="breed-temperament"></p>
+      <img id="cat-image" alt="Cat Image">
+    </div>
+  </div>
+
+  <script src="./js/cat-api.js" type="module"></script>
+  <script src="./js/app.js" type="module"></script>
+</body>
 </html>
