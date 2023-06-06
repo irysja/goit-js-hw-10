@@ -36,11 +36,7 @@ function hideLoader() {
 }
 
 function showError() {
-  errorReport = Notiflix.Report.Failure(
-    'Error',
-    'An error occurred while fetching data.',
-    'OK'
-  );
+  errorReport = Notiflix.Notify.failure('An error occurred while fetching data.');
 }
 
 function hideError() {
