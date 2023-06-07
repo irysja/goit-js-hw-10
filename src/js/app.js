@@ -41,7 +41,6 @@ function showError() {
 
 function hideError() {
   if (errorReport !== null) {
-    errorReport.close(); 
     errorReport = null;
   }
 }
