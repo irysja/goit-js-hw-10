@@ -41,8 +41,8 @@ function showError() {
 
 function hideError() {
   if (errorReport !== null) {
-    errorReport.hide(); // Use the hide method provided by Notiflix
-    errorReport = null; // Reset errorReport to null after hiding
+    errorReport.close(); 
+    errorReport = null;
   }
 }
 
